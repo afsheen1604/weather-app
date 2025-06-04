@@ -1,4 +1,5 @@
-const API_KEY = '3e696a2436beb58d49a22af553db8343';
+require('dotenv').config();
+const API_KEY = process.env.API_KEY;
         const BASE_URL = 'https://api.openweathermap.org/data/2.5';
 
         // Theme management
