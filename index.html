@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <span id="theme-icon">🌙</span>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>🌤️ Weather App</h1>
+        </div>
+
+        <div class="search-section">
+            <form class="search-form" onsubmit="searchWeather(event)">
+                <input 
+                    type="text" 
+                    class="search-input" 
+                    id="cityInput" 
+                    placeholder="Enter city name..."
+                    required
+                >
+                <button type="submit" class="btn">🔍 Search</button>
+                <button type="button" class="btn" onclick="getCurrentLocation()">📍 My Location</button>
+            </form>
+            <div id="error-message"></div>
+        </div>
+
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <span>Loading weather data...</span>
+        </div>
+
+        <div id="current-weather" class="current-weather hidden">
+            <div class="location" id="location"></div>
+            <img class="weather-icon" id="weather-icon" alt="Weather Icon">
+            <div class="temperature" id="temperature"></div>
+            <div class="description" id="description"></div>
+            
+            <div class="weather-details">
+                <div class="detail-item">
+                    <div class="detail-label">💧 Humidity</div>
+                    <div class="detail-value" id="humidity"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">💨 Wind Speed</div>
+                    <div class="detail-value" id="wind-speed"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">🌡️ Feels Like</div>
+                    <div class="detail-value" id="feels-like"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">👁️ Visibility</div>
+                    <div class="detail-value" id="visibility"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="forecast-section" class="forecast-section hidden">
+            <h2 class="forecast-title">📅 5-Day Forecast</h2>
+            <div class="forecast-grid" id="forecast-grid"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
