@@ -26,6 +26,12 @@ if (window.darkModeEnabled) {
 async function getWeatherData(query) {
     try {
         console.log('Making API request with query:', query);
+        
+        // Check if API key is available
+        if (!API_KEY) {
+            throw new Error('API key not loaded. Please check config.js file.');
+        }
+        
         console.log('Using API key:', API_KEY.substring(0, 8) + '...');
         
         const response = await fetch(`${API_URL}?${query}&appid=${API_KEY}&units=metric`);
@@ -182,6 +188,10 @@ function hideWeather() {
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Check if config is loaded
+    console.log('Config loaded:', window.WEATHER_CONFIG);
+    console.log('API Key available:', !!API_KEY);
+    
     // Enter key support
     const cityInput = document.getElementById('cityInput');
     if (cityInput) {
