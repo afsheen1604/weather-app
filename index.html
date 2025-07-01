@@ -7,67 +7,43 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="theme-toggle" onclick="toggleTheme()">
-        <span id="theme-icon">🌙</span>
-    </div>
-
     <div class="container">
-        <div class="header">
-            <h1>🌤️ Weather App</h1>
-        </div>
-
-        <div class="search-section">
-            <form class="search-form" onsubmit="searchWeather(event)">
-                <input 
-                    type="text" 
-                    class="search-input" 
-                    id="cityInput" 
-                    placeholder="Enter city name..."
-                    required
-                >
-                <button type="submit" class="btn">🔍 Search</button>
-                <button type="button" class="btn" onclick="getCurrentLocation()">📍 My Location</button>
-            </form>
-            <div id="error-message"></div>
-        </div>
-
-        <div id="loading" class="loading hidden">
-            <div class="spinner"></div>
-            <span>Loading weather data...</span>
-        </div>
-
-        <div id="current-weather" class="current-weather hidden">
-            <div class="location" id="location"></div>
-            <img class="weather-icon" id="weather-icon" alt="Weather Icon">
-            <div class="temperature" id="temperature"></div>
-            <div class="description" id="description"></div>
+        <div class="weather-app">
+            <h1>Weather App</h1>
+            <p class="subtitle">using javascript</p>
             
-            <div class="weather-details">
-                <div class="detail-item">
-                    <div class="detail-label">💧 Humidity</div>
-                    <div class="detail-value" id="humidity"></div>
+            <div class="search-container">
+                <input type="text" id="locationInput" placeholder="Enter city name...">
+                <button id="searchBtn">🔍</button>
+                <button id="locationBtn">📍</button>
+            </div>
+            
+            <div class="weather-card" id="weatherCard">
+                <div class="weather-icon">
+                    <img id="weatherIcon" src="" alt="Weather Icon">
                 </div>
-                <div class="detail-item">
-                    <div class="detail-label">💨 Wind Speed</div>
-                    <div class="detail-value" id="wind-speed"></div>
-                </div>
-                <div class="detail-item">
-                    <div class="detail-label">🌡️ Feels Like</div>
-                    <div class="detail-value" id="feels-like"></div>
-                </div>
-                <div class="detail-item">
-                    <div class="detail-label">👁️ Visibility</div>
-                    <div class="detail-value" id="visibility"></div>
+                <div class="temperature" id="temperature">22°C</div>
+                <div class="location" id="location">New York</div>
+                <div class="weather-details">
+                    <div class="detail">
+                        <span class="detail-icon">💧</span>
+                        <span id="humidity">64%</span>
+                        <span class="detail-label">Humidity</span>
+                    </div>
+                    <div class="detail">
+                        <span class="detail-icon">💨</span>
+                        <span id="windSpeed">18 km/h</span>
+                        <span class="detail-label">Wind Speed</span>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div id="forecast-section" class="forecast-section hidden">
-            <h2 class="forecast-title">📅 5-Day Forecast</h2>
-            <div class="forecast-grid" id="forecast-grid"></div>
+            
+            <div class="error-message" id="errorMessage">
+                Location not found. Please try again.
+            </div>
         </div>
     </div>
-    <script src="config.js"></script>
+
     <script src="script.js"></script>
 </body>
 </html>
