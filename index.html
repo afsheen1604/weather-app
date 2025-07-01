@@ -4,46 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <div class="weather-app">
-            <h1>Weather App</h1>
-            <p class="subtitle">using javascript</p>
-            
-            <div class="search-container">
-                <input type="text" id="locationInput" placeholder="Enter city name...">
-                <button id="searchBtn">🔍</button>
-                <button id="locationBtn">📍</button>
-            </div>
-            
-            <div class="weather-card" id="weatherCard">
-                <div class="weather-icon">
-                    <img id="weatherIcon" src="" alt="Weather Icon">
-                </div>
-                <div class="temperature" id="temperature">22°C</div>
-                <div class="location" id="location">New York</div>
-                <div class="weather-details">
-                    <div class="detail">
-                        <span class="detail-icon">💧</span>
-                        <span id="humidity">64%</span>
-                        <span class="detail-label">Humidity</span>
-                    </div>
-                    <div class="detail">
-                        <span class="detail-icon">💨</span>
-                        <span id="windSpeed">18 km/h</span>
-                        <span class="detail-label">Wind Speed</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="error-message" id="errorMessage">
-                Location not found. Please try again.
-            </div>
-        </div>
+    <div class="toggle-container">
+        <div class="toggle" id="themeToggle"></div>
     </div>
 
+    <div class="container">
+        <h1>🌤️ Weather</h1>
+        
+        <div class="search-container">
+            <input type="text" id="cityInput" placeholder="Enter city name...">
+            <button onclick="searchWeather()">🔍</button>
+            <button onclick="getLocationWeather()">Location</button>
+        </div>
+
+        <div id="weatherCard" class="weather-card hidden">
+            <div class="location" id="location"></div>
+            <div class="description" id="description"></div>
+            <div class="temp" id="temperature"></div>
+            
+            <div class="weather-details">
+                <div class="detail-item">
+                    <div class="detail-label">Humidity</div>
+                    <div class="detail-value" id="humidity"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Wind Speed</div>
+                    <div class="detail-value" id="windSpeed"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Pressure</div>
+                    <div class="detail-value" id="pressure"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Visibility</div>
+                    <div class="detail-value" id="visibility"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="errorMessage" class="error hidden"></div>
+    </div>
+    <script src="config.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
